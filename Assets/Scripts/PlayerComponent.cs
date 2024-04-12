@@ -28,6 +28,14 @@ public class PlayerComponent : MonoBehaviour
         isGrounded = false;
     }
 
+    private void OnTriggerEnter(Collider other) {
+        if (other.tag == "Coin")
+        {
+            GetComponent<TimeScore>().coins += 1;
+            GameObject.Destroy(other.gameObject);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
